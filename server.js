@@ -45,7 +45,9 @@ ON messages(sender_id, receiver_id, created_at);
 `);
 
 app.use(express.json({ limit: "32kb" }));
-app.use(express.static(path.join(__dirname, "public")));
+
+// Statik fayllarni public o'rniga ildiz (root) papkadan xizmat qildirish
+app.use(express.static(__dirname));
 
 function telegramCheck(initData) {
   if (!BOT_TOKEN || !initData) return null;
@@ -244,8 +246,9 @@ io.on("connection", (socket) => {
   });
 });
 
+// index.html ni ham ildiz papkadan yuklash
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 server.listen(PORT, () => {
