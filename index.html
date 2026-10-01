@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <title>Mini Chat</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <main class="app">
+    <section class="sidebar" id="sidebar">
+      <header class="topbar">
+        <div>
+          <div class="brand">Mini Chat</div>
+          <div class="muted" id="meName">Yuklanmoqda...</div>
+        </div>
+        <button class="icon-btn" id="closeChat" title="Chatni yopish">×</button>
+      </header>
+
+      <div class="search-wrap">
+        <input id="search" type="search" placeholder="Foydalanuvchi qidirish...">
+      </div>
+
+      <div class="section-title">Foydalanuvchilar</div>
+      <div id="users" class="users"></div>
+    </section>
+
+    <section class="chat" id="chat">
+      <div class="empty" id="empty">
+        <div class="empty-icon">💬</div>
+        <h2>Mini Chat</h2>
+        <p>Yozishishni boshlash uchun foydalanuvchini tanlang.</p>
+      </div>
+
+      <div id="chatPanel" class="chat-panel hidden">
+        <header class="chat-head">
+          <button class="back-btn" id="backBtn">‹</button>
+          <img id="chatAvatar" class="avatar" alt="">
+          <div class="chat-person">
+            <strong id="chatName">User</strong>
+            <span id="chatStatus">offline</span>
+          </div>
+        </header>
+
+        <div id="messages" class="messages" aria-live="polite"></div>
+        <div id="typing" class="typing"></div>
+
+        <form id="composer" class="composer">
+          <input id="messageInput" autocomplete="off" maxlength="2000" placeholder="Xabar yozing...">
+          <button type="submit">➤</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

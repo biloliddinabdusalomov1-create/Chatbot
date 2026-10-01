@@ -1,0 +1,53 @@
+*{box-sizing:border-box}
+:root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#17202a;background:#eef2f5}
+body{margin:0;min-height:100vh;background:#eef2f5}
+button,input{font:inherit}
+.app{width:min(100%,1050px);height:100vh;margin:auto;background:white;display:flex;overflow:hidden;box-shadow:0 0 30px #0001}
+.sidebar{width:340px;border-right:1px solid #e5e7eb;display:flex;flex-direction:column;background:#fff}
+.topbar{height:76px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee}
+.brand{font-weight:800;font-size:21px}
+.muted{font-size:13px;color:#84909b;margin-top:3px}
+.icon-btn,.back-btn{border:0;background:transparent;font-size:28px;color:#6b7280;cursor:pointer}
+.search-wrap{padding:12px}
+.search-wrap input{width:100%;padding:12px 14px;border:1px solid #e4e7eb;border-radius:14px;outline:none;background:#f7f8fa}
+.search-wrap input:focus{border-color:#6aa9ff}
+.section-title{padding:0 15px 8px;font-size:12px;color:#8b95a1;text-transform:uppercase;font-weight:700}
+.users{overflow:auto;flex:1}
+.user{display:flex;gap:12px;align-items:center;padding:12px 15px;cursor:pointer;border-bottom:1px solid #f4f5f6}
+.user:hover{background:#f6f8fa}
+.avatar{width:46px;height:46px;border-radius:50%;object-fit:cover;background:#dce5ef;display:block}
+.user-info{min-width:0;flex:1}
+.user-name{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.user-handle{font-size:13px;color:#8a94a0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.status-dot{width:9px;height:9px;border-radius:50%;background:#c3c8ce}
+.status-dot.online{background:#25c46b}
+.chat{flex:1;min-width:0;display:flex;background:#f3f6f8}
+.empty{margin:auto;text-align:center;color:#73808c;padding:25px}
+.empty-icon{font-size:58px}
+.empty h2{color:#25313c;margin:8px 0}
+.chat-panel{display:flex;flex-direction:column;width:100%;min-width:0}
+.hidden{display:none!important}
+.chat-head{height:76px;background:white;border-bottom:1px solid #e7eaed;display:flex;align-items:center;gap:10px;padding:10px 15px}
+.back-btn{display:none}
+.chat-person{display:flex;flex-direction:column;min-width:0}
+.chat-person strong{font-size:16px}
+.chat-person span{font-size:12px;color:#2aa66a;margin-top:3px}
+.messages{flex:1;overflow:auto;padding:18px;display:flex;flex-direction:column;gap:7px}
+.msg{max-width:min(75%,520px);padding:9px 12px;border-radius:15px;line-height:1.4;font-size:15px;word-break:break-word}
+.msg.mine{align-self:flex-end;background:#d8f8d5;border-bottom-right-radius:5px}
+.msg.theirs{align-self:flex-start;background:white;border-bottom-left-radius:5px}
+.msg-time{font-size:10px;color:#87919b;margin-top:3px;text-align:right}
+.typing{height:20px;padding:0 18px;color:#7e8994;font-size:12px}
+.composer{display:flex;gap:8px;padding:10px;background:white;border-top:1px solid #e4e7ea}
+.composer input{flex:1;border:1px solid #dfe4e8;border-radius:22px;padding:12px 15px;outline:none}
+.composer button{width:48px;height:44px;border:0;border-radius:50%;background:#2386df;color:white;font-size:20px;cursor:pointer}
+.no-users{padding:25px;text-align:center;color:#8b95a1}
+@media(max-width:700px){
+  .app{height:100dvh;box-shadow:none}
+  .sidebar{width:100%;border-right:0}
+  .chat{display:none}
+  .app.chat-open .sidebar{display:none}
+  .app.chat-open .chat{display:flex;width:100%}
+  .back-btn{display:block}
+  .icon-btn{display:none}
+}
